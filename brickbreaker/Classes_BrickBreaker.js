@@ -1,12 +1,20 @@
+//gathers user input
+//exists in menus and gameplay
+//should be made somewhat universal between games and such
+//need to have a class or something which handles the user input and routs it in the proper direction
+//player class should have a state which determines its allowed actions
 class Player {
-    constructor(){
-
+    constructor(state){
+        this.state = state;
     }
 
 }
 class Bar {
     //x, width and height describe the quasi-physical existence of the player controlled 'bar'
     //the speed atribute determines how fast the bar is allowed to move along the x axis 
+    //The movement is based upon the input direction(keyboard or mouse) and the speed
+    //On keyboard, the bar will move at a somewhat constant speed i guess (perhaps accelerating with length of button press)
+    //On mouse the bar will chase the mouse's position moving at a maximum speed set by the classes speed attribute
     constructor(x, width, height, speed){
         this.x = x;
         this.width = width;
@@ -19,6 +27,10 @@ class Bar {
     //moves the bar at most 'speed' units per frame
     //Uses player controls to direct movement,
     //but is limited to the set speed of the bar for movement speed
+    //if speed is 5 and mouse.pos is 4 units away, only move 4 units
+    //must not jump past the cursor
+    //should allow fractions of 'speedunit' movement on both mouse and keyboard
+    
     set pos(x) { 
 
     }
